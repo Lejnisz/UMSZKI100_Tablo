@@ -1,4 +1,4 @@
-/*Nem az én aztalom ez a webdesign szóval a css-ért ezért a CHAT GPT kell éltetni*/
+/*Nem az én aztalom ez a webdesign, szóval a css-ért ezért a CHAT GPT kell éltetni részben*/
 /* ===== ALAPBEÁLLÍTÁSOK ===== */
 :root {
     --primary-color: #0056a3;
@@ -790,4 +790,5 @@ footer a:hover {
     font-size: 3rem;
     margin-bottom: 1rem;
     opacity: 0.5;
+
 }

@@ -102,10 +102,10 @@ function esemenyKezelokBeallitasa() {
 
     // Galéria kártya kattintás (delegált)
     galeriaGrid.addEventListener('click', (esemeny) => {
-        const kartya = esemeny.target.closest('.tablo-card');
+        var kartya = esemeny.target.closest('.tablo-card');
         if (kartya) {
-            const azonosito = parseInt(kartya.dataset.azonosito);
-            const tablo = tabloAdatok.find((t) => t.azonosito === azonosito);
+            var azonosito = parseInt(kartya.dataset.azonosito);
+            var tablo = tabloAdatok.find((t) => t.azonosito === azonosito);
             if (tablo) lightboxMegnyitasa(tablo);
         }
     });
@@ -149,13 +149,13 @@ function galeriaMegjelenitese(adatok) {
 
 // ===== SZŰRÉS ALKALMAZÁSA =====
 function szurokAlkalmazasa() {
-    const szurtAdatok = tabloAdatok.filter((tablo) => {
+    var szurtAdatok = tabloAdatok.filter((tablo) => {
         
-        const egyezikEv = aktualisEvSzuro === 'all' || tablo.ev === aktualisEvSzuro;
+        var egyezikEv = aktualisEvSzuro === 'all' || tablo.ev === aktualisEvSzuro;
 
         
-        const egyezikKategoria = aktualisKategoriaSzuro === 'all' || tablo.kategoria === aktualisKategoriaSzuro;
-        const egyezikKereses = !aktualisKereses || 
+        var egyezikKategoria = aktualisKategoriaSzuro === 'all' || tablo.kategoria === aktualisKategoriaSzuro;
+        var egyezikKereses = !aktualisKereses || 
                               tablo.cim.toLowerCase().includes(aktualisKereses) ||
                               tablo.leiras.toLowerCase().includes(aktualisKereses) ||
                               tablo.osztaly.toLowerCase().includes(aktualisKereses) ||
@@ -177,14 +177,14 @@ function talalatokFrissitese(szam) {
 
 // ===== AKTÍV SZŰRŐK FRISSÍTÉSE =====
 function aktivSzurokFrissitese() {
-    const aktivSzurok = [];
+    var aktivSzurok = [];
 
     if (aktualisEvSzuro !== 'all') {
         aktivSzurok.push({ tipus: 'Év', ertek: aktualisEvSzuro });
     }
 
     if (aktualisKategoriaSzuro !== 'all') {
-        const kategoriaNev = Array.from(kategoriaGombok).find(
+        var kategoriaNev = Array.from(kategoriaGombok).find(
             g => g.dataset.kategoria === aktualisKategoriaSzuro
         )?.textContent || aktualisKategoriaSzuro;
         aktivSzurok.push({ tipus: 'Kategória', ertek: kategoriaNev });
@@ -206,9 +206,9 @@ function lightboxMegnyitasa(tablo) {
     lightboxElementek.leiras.textContent = tablo.leiras;
 
     // Kép betöltése
-    const kepImg = document.getElementById('lightboxKepImg');
+    var kepImg = document.getElementById('lightboxKepImg');
     if (kepImg) {
-        const highResUrl = tablo.kepUrlHigh.trim()
+        var highResUrl = tablo.kepUrlHigh.trim()
         
         kepImg.src = highResUrl;
         kepImg.alt = tablo.cim;
@@ -218,7 +218,7 @@ function lightboxMegnyitasa(tablo) {
     // Placeholder eltüntetése
     if (lightboxElementek.kep) {
         lightboxElementek.kep.classList.add('has-image');
-        const highResUrl = tablo.kepUrlHigh.trim()
+        var highResUrl = tablo.kepUrlHigh.trim()
         lightboxElementek.kep.style.backgroundImage = `url('${highResUrl}')`;
         lightboxElementek.kep.style.backgroundSize = 'cover';
         lightboxElementek.kep.style.backgroundPosition = 'center';
@@ -244,7 +244,7 @@ function lightboxBezár() {
     document.body.style.overflow = '';
 
     // ép resetelése
-    const kepImg = document.getElementById('lightboxKepImg');
+    var kepImg = document.getElementById('lightboxKepImg');
     if (kepImg) {
         kepImg.src = '';
         kepImg.style.display = 'none';

@@ -155,8 +155,6 @@ function szurokAlkalmazasa() {
 
         
         const egyezikKategoria = aktualisKategoriaSzuro === 'all' || tablo.kategoria === aktualisKategoriaSzuro;
-
-        //Keresőszöveg szűrés (OSZTÁLYFŐNÖKKEL!)
         const egyezikKereses = !aktualisKereses || 
                               tablo.cim.toLowerCase().includes(aktualisKereses) ||
                               tablo.leiras.toLowerCase().includes(aktualisKereses) ||
@@ -210,7 +208,9 @@ function lightboxMegnyitasa(tablo) {
     // Kép betöltése
     const kepImg = document.getElementById('lightboxKepImg');
     if (kepImg) {
-        kepImg.src = tablo.kepUrl.trim();
+        const highResUrl = tablo.kepUrlHigh ? tablo.kepUrlHigh.trim() : tablo.kepUrl.trim();
+        
+        kepImg.src = highResUrl;
         kepImg.alt = tablo.cim;
         kepImg.style.display = 'block';
     }
@@ -218,7 +218,8 @@ function lightboxMegnyitasa(tablo) {
     // Placeholder eltüntetése
     if (lightboxElementek.kep) {
         lightboxElementek.kep.classList.add('has-image');
-        lightboxElementek.kep.style.backgroundImage = `url('${tablo.kepUrl.trim()}')`;
+        const highResUrl = tablo.kepUrlHigh ? tablo.kepUrlHigh.trim() : tablo.kepUrl.trim();
+        lightboxElementek.kep.style.backgroundImage = `url('${highResUrl}')`;
         lightboxElementek.kep.style.backgroundSize = 'cover';
         lightboxElementek.kep.style.backgroundPosition = 'center';
         lightboxElementek.kep.textContent = '';

@@ -208,7 +208,7 @@ function lightboxMegnyitasa(tablo) {
     // Kép betöltése
     const kepImg = document.getElementById('lightboxKepImg');
     if (kepImg) {
-        const highResUrl = tablo.kepUrlHigh ? tablo.kepUrlHigh.trim() : tablo.kepUrl.trim();
+        const highResUrl = tablo.kepUrlHigh.trim()
         
         kepImg.src = highResUrl;
         kepImg.alt = tablo.cim;
@@ -218,7 +218,7 @@ function lightboxMegnyitasa(tablo) {
     // Placeholder eltüntetése
     if (lightboxElementek.kep) {
         lightboxElementek.kep.classList.add('has-image');
-        const highResUrl = tablo.kepUrlHigh ? tablo.kepUrlHigh.trim() : tablo.kepUrl.trim();
+        const highResUrl = tablo.kepUrlHigh.trim()
         lightboxElementek.kep.style.backgroundImage = `url('${highResUrl}')`;
         lightboxElementek.kep.style.backgroundSize = 'cover';
         lightboxElementek.kep.style.backgroundPosition = 'center';

@@ -209,7 +209,7 @@ function lightboxMegnyitasa(tablo) {
     var kepImg = document.getElementById('lightboxKepImg');
     if (kepImg) {
         var highResUrl = tablo.kepUrlHigh.trim()
-        
+        console.log("Próbálom betölteni ezt a képet:", highResUrl);
         kepImg.src = highResUrl;
         kepImg.alt = tablo.cim;
         kepImg.style.display = 'block';
